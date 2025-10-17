@@ -14,7 +14,15 @@ spec:
         app: fss-app
     spec:
       containers:
-      - name: nginx
+      - name: fss-app
+        # Image is intended to be overridden per-overlay via kustomize imageTransformer or patches
         image: nginx:latest
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"

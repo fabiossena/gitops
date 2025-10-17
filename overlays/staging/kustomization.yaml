@@ -1,2 +1,9 @@
 resources:
   - ../../base
+patchesStrategicMerge:
+  - patch-replicas.yaml
+  - patch-image.yaml
+
+images:
+  - name: nginx
+    newTag: 1.24.0
