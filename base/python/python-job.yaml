@@ -4,6 +4,7 @@ metadata:
   name: python-job
   namespace: fss-app
 spec:
+  schedule: "1 * * * *"
   template:
     metadata:
       labels:

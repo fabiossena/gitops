@@ -3,6 +3,8 @@ kind: Kustomization
 
 resources:
   - php-job.yaml
+  - deployment.yaml
+  - service.yaml
 
 labels:
   - pairs:
