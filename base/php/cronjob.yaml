@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: php-cron
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: php-cron
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: php-cron
+            image: php:8.2-fpm
+            command: ["php"]
+            args: ["-r", "echo 'PHP cron executed';"]
+            resources:
+              requests:
+                cpu: "50m"
+                memory: "64Mi"
+              limits:
+                cpu: "100m"
+                memory: "128Mi"

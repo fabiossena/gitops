@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-fss-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-fss-app
+  template:
+    metadata:
+      labels:
+        app: python-fss-app
+    spec:
+      containers:
+      - name: python-fss-app
+        # Image is intended to be overridden per-overlay via kustomize imageTransformer or patches
+        image: python:3.11-slim
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"

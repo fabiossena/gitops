@@ -1,20 +1,19 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: python-job
-  namespace: fss-app
+  name: php-job
 spec:
   template:
     metadata:
       labels:
-        app: python-job
+        app: php-job
     spec:
       restartPolicy: Never
       containers:
-      - name: python-worker
-        image: python:3.11-slim
-        command: ["python"]
-        args: ["-c", "print('Hello from Python job!'); import time; time.sleep(10); print('Job completed successfully!')"]
+      - name: php-worker
+        image: php:8.2-fpm
+        command: ["php"]
+        args: ["-r", "echo 'Hello from PHP job!'; echo 'Job completed successfully!';"]
         resources:
           requests:
             memory: "64Mi"

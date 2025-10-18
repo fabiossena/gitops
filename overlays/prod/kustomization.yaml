@@ -2,8 +2,8 @@ resources:
   - ../../base
 patchesStrategicMerge:
   - patch-replicas.yaml
-  - patch-image.yaml
+  # - patch-image.yaml
 
-images:
-  - name: nginx
-    newTag: 1.25.0
+# images:
+#   - name: nginx
+#     newTag: 1.25.0

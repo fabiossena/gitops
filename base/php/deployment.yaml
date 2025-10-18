@@ -1,20 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: fss-deployment
-  namespace: fss-app
+  name: php-fss-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: fss-app
+      app: php-fss-app
   template:
     metadata:
       labels:
-        app: fss-app
+        app: php-fss-app
     spec:
       containers:
-      - name: fss-app
+      - name: php-fss-app
         # Image is intended to be overridden per-overlay via kustomize imageTransformer or patches
         image: nginx:latest
         ports:

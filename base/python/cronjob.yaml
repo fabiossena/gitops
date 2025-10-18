@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: python-cron
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: python-cron
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: python-cron
+            image: python:3.11-slim
+            command: ["python", "-c"]
+            args: ["print('Python cron executed')"]
+            resources:
+              requests:
+                cpu: "50m"
+                memory: "64Mi"
+              limits:
+                cpu: "100m"
+                memory: "128Mi"
