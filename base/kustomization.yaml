@@ -2,16 +2,13 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - namespace.yaml
-  - deployment.yaml
-  - service.yaml
-  - python-job.yaml
+  - python
+  - php
+# commonLabels:
+#   app.kubernetes.io/name: fss-app
+#   app.kubernetes.io/version: "1.0.0"
 
-commonLabels:
-  app.kubernetes.io/name: fss-app
-  app.kubernetes.io/version: "1.0.0"
-
-images:
-  - name: nginx
-    newName: nginx
-    newTag: latest
+# images:
+#   - name: nginx
+#     newName: nginx
+#     newTag: latest
