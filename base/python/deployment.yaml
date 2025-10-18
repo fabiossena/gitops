@@ -16,6 +16,8 @@ spec:
       - name: python-fss-app
         # Image is intended to be overridden per-overlay via kustomize imageTransformer or patches
         image: python:3.11-slim
+        command: ["python"]
+        args: ["-m", "http.server", "80"]
         ports:
         - containerPort: 80
         resources:
