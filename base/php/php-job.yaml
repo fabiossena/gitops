@@ -2,6 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: php-job
+  namespace: fss-app
 spec:
   template:
     metadata:
@@ -11,9 +12,9 @@ spec:
       restartPolicy: Never
       containers:
       - name: php-worker
-        image: php:8.2-fpm
+        image: php:8.2-cli
         command: ["php"]
-        args: ["-r", "echo 'Hello from PHP job!'; echo 'Job completed successfully!';"]
+        args: ["-r", "echo 'Hello from PHP job!' . PHP_EOL; sleep(10); echo 'Job completed successfully!' . PHP_EOL;"]
         resources:
           requests:
             memory: "64Mi"
