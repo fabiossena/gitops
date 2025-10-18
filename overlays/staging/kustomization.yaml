@@ -1,8 +1,9 @@
 resources:
   - ../../base
-patchesStrategicMerge:
-  - patch-replicas.yaml
-  #- patch-image.yaml
+
+# patches:
+#   - patch-replicas.yaml
+#   - patch-image.yaml
 
 # images:
 #   - name: nginx
