@@ -6,7 +6,19 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  resources:
+  resources:apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postgres-pv
+spec:
+  capacity:
+    storage: 4Gi
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: standard
+  hostPath:
+    path: /mnt/data/postgres
+
     requests:
       storage: 4Gi
   storageClassName: standard
