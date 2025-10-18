@@ -6,7 +6,7 @@ resources:
   - python
   - php
   - postgres
-  - vault
+  - vault/vault.yaml
 
 labels:
   - pairs:
