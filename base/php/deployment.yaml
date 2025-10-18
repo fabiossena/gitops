@@ -17,7 +17,7 @@ spec:
         # Image is intended to be overridden per-overlay via kustomize imageTransformer or patches
         image: php:8.2-apache
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         resources:
           requests:
             cpu: "100m"
