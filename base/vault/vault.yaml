@@ -67,6 +67,10 @@ spec:
         app: vault
     spec:
       serviceAccountName: vault
+      securityContext:
+        runAsUser: 0
+        runAsGroup: 0
+        fsGroup: 0
       containers:
         - name: vault
           image: hashicorp/vault:1.15.0
@@ -89,8 +93,13 @@ spec:
                     }
                   },
                   "ui": true,
-                  "disable_mlock": true
+                  "disable_mlock": false,
+                  "cluster_addr": "http://vault-0.vault:8201"
                 }
+          securityContext:
+            capabilities:
+              add: ["IPC_LOCK"]
+            allowPrivilegeEscalation: true
           volumeMounts:
             - name: vault-data
               mountPath: /vault/data
@@ -105,7 +114,6 @@ spec:
             preStop:
               exec:
                 command: ["/bin/sh", "-c", "vault operator step-down || true"]
-      volumes: []
   volumeClaimTemplates:
     - metadata:
         name: vault-data

@@ -8,24 +8,52 @@ spec:
   source:
     repoURL: https://helm.releases.hashicorp.com
     chart: vault
-    targetRevision: 0.27.0   # versão atualizada do chart
+    targetRevision: 0.27.0  # ajuste conforme a versão desejada
     helm:
       releaseName: vault
       values: |
         server:
+          replicaCount: 1
+          affinity: {}
           ha:
-            enabled: true
+            enabled: false
+            raft:
+              enabled: true
+              path: /vault/data
           dataStorage:
             enabled: true
             size: 1Gi
-          dev:
-            enabled: true
+          readinessProbe:
+            httpGet:
+              path: /v1/sys/health
+              port: 8200
+            initialDelaySeconds: 60
+            periodSeconds: 10
+            failureThreshold: 10
+          extraEnvironmentVars:
+            VAULT_LOCAL_CONFIG: |
+              {
+                "listener": {"tcp":{"address":"0.0.0.0:8200","tls_disable":1}},
+                "storage": {"raft":{"path":"/vault/data"}},
+                "ui": true,
+                "disable_mlock": false,
+                "cluster_addr": "http://vault-0.vault:8201"
+              }
+          podSecurityContext:
+            runAsUser: 0
+            capabilities:
+              add: ["IPC_LOCK"]
+          securityContext:
+            capabilities:
+              add: ["IPC_LOCK"]
+        injector:
+          enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: vault
   syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
