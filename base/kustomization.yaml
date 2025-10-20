@@ -8,10 +8,10 @@ resources:
   - postgres
   #- vault/vault.yaml
 
-labels:
-  - pairs:
-      app.kubernetes.io/name: fss-app
-      app.kubernetes.io/version: "1.0.0"
+# labels:
+#   - pairs:
+#       app.kubernetes.io/name: fss-app
+#       app.kubernetes.io/version: "1.0.0"
 
 images:
   - name: nginx
