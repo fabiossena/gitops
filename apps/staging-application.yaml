@@ -11,7 +11,7 @@ spec:
     path: overlays/staging
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: fss-app
+    namespace: staging
   syncPolicy:
     automated:
       prune: true
