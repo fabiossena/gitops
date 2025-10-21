@@ -7,13 +7,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: vault
-  namespace: vault
+  #namespace: vault
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: vault-leader-election
-  namespace: vault
+  #namespace: vault
 rules:
   - apiGroups: ["coordination.k8s.io"]
     resources: ["leases"]
@@ -23,11 +23,11 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: vault-leader-election
-  namespace: vault
+  #namespace: vault
 subjects:
   - kind: ServiceAccount
     name: vault
-    namespace: vault
+    #namespace: vault
 roleRef:
   kind: Role
   name: vault-leader-election
@@ -37,7 +37,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: vault
-  namespace: vault
+  #namespace: vault
 spec:
   type: ClusterIP
   selector:
@@ -54,7 +54,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: vault
-  namespace: vault
+  #namespace: vault
 spec:
   serviceName: "vault"
   replicas: 1
