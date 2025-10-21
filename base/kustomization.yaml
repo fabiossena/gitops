@@ -5,8 +5,8 @@ resources:
   - ingress.yaml
   - python
   - php
-  - postgres
-  - vault/vault2.yaml
+  #- postgres
+  #- vault/vault2.yaml
 
 labels:
   - pairs:
