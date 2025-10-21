@@ -3,10 +3,10 @@ resources:
 
 namespace: production
 
-# patches:
-#   - patch-replicas.yaml
+patches:
+  - patch-replicas.yaml
 #   - patch-image.yaml
 
 images:
   - name: nginx
-    newTag: 1.25.0
+    newTag: latest
