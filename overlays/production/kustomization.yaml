@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
   - ../../base
 
-namespace: production
+#namespace: production
 
 # patchesStrategicMerge:
 #   - patch-replicas.yaml
