@@ -2,27 +2,25 @@ apiVersion: batch/v1
 kind: CronJob
 metadata:
   name: python-job
-  namespace: production
+  namespace: fss-app
 spec:
-  schedule: "0/1 * * * *" # executa 
-  jobTemplate:
+  schedule: "0/1 * * * *"
+  template:
+    metadata:
+      labels:
+        app: python-job
     spec:
-      template:
-        metadata:
-          labels:
-            app: python-job
-        spec:
-          restartPolicy: Never
-          containers:
-          - name: python-worker
-            image: python:3.11-slim
-            command: ["python"]
-            args: ["-c", "print('Hello from Python job!'); import time; time.sleep(10); print('Job completed successfully!')"]
-            resources:
-              requests:
-                memory: "64Mi"
-                cpu: "100m"
-              limits:
-                memory: "128Mi"
-                cpu: "200m"
+      restartPolicy: Never
+      containers:
+      - name: python-worker
+        image: python:3.11-slim
+        command: ["python"]
+        args: ["-c", "print('Hello from Python job!'); import time; time.sleep(10); print('Job completed successfully!')"]
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
       backoffLimit: 3

@@ -2,12 +2,11 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  #- vault/vault2.yaml
-  - deployment-nginx.yaml
-  #- python
- # - php
-  #- postgres
-  #- ingress.yaml
+  - ingress.yaml
+  - python
+  - php
+  - postgres
+  - vault/vault2.yaml
 
 # labels:
 #   - pairs:

@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: php-job
-  #namespace: fss-app
+  namespace: fss-app
 spec:
   schedule: "1 * * * *"
   template:

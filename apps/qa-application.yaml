@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: fss-app-qa
-  namespace: qa
+  name: fss-app-prod
+  namespace: argocd
 spec:
   project: default
   source:
@@ -11,7 +11,7 @@ spec:
     path: overlays/qa
   destination:
     server: 'https://kubernetes.default.svc'
-    #namespace: fss-app
+    namespace: fss-app
   syncPolicy:
     automated:
       prune: true

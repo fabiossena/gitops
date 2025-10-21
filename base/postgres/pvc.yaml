@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: postgres-pvc
-  #namespace: fss-app
+  namespace: fss-app
 spec:
   accessModes:
     - ReadWriteOnce
