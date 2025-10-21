@@ -3,6 +3,7 @@ kind: Kustomization
 
 resources:
   - ingress.yaml
+  - deployment-nginx.yaml
   - python
  # - php
   #- postgres
