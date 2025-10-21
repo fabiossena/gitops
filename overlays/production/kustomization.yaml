@@ -6,8 +6,8 @@ resources:
 
 namespace: production
 
-patchesStrategicMerge:
-  - patch-replicas.yaml
+# patchesStrategicMerge:
+#   - patch-replicas.yaml
 
 images:
   - name: nginx

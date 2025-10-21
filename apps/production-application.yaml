@@ -4,7 +4,7 @@ metadata:
   name: fss-app-production
   namespace: argocd
 spec:
-  project: fss-project
+  project: default
   source:
     repoURL: 'https://github.com/fabiossena/gitops.git'
     targetRevision: main

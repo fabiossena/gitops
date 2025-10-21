@@ -4,10 +4,10 @@ kind: Kustomization
 resources:
   #- vault/vault2.yaml
   - deployment-nginx.yaml
-  - python
+  #- python
  # - php
   #- postgres
-  - ingress.yaml
+  #- ingress.yaml
 
 # labels:
 #   - pairs:
