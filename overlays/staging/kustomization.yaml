@@ -1,6 +1,8 @@
 resources:
   - ../../base
 
+namespace: staging
+
 # patches:
 #   - patch-replicas.yaml
 #   - patch-image.yaml

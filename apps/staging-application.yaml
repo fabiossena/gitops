@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'git@github.com:fabiossena/gitops.git'
+    repoURL: 'https://github.com/fabiossena/gitops.git'
     targetRevision: main
     path: overlays/staging
   destination:

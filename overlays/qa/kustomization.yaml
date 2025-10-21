@@ -1,6 +1,8 @@
 resources:
   - ../../base
 
+namespace: qa
+
 # patches:
 #   - patch-replicas.yaml
 #   - patch-image.yaml
