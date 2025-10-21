@@ -2,19 +2,19 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - ingress.yaml
+  #- vault/vault2.yaml
   - deployment-nginx.yaml
   - python
  # - php
   #- postgres
-  #- vault/vault2.yaml
+  - ingress.yaml
 
-labels:
-  - pairs:
-      app.kubernetes.io/name: fss-app
-      app.kubernetes.io/version: "1.0.0"
+# labels:
+#   - pairs:
+#       app.kubernetes.io/name: fss-app
+#       app.kubernetes.io/version: "1.0.0"
 
-images:
-  - name: nginx
-    newName: nginx
-    newTag: latest
+# images:
+#   - name: nginx
+#     newName: nginx
+#     newTag: latest

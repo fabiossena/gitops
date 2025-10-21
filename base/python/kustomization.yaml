@@ -6,7 +6,7 @@ resources:
   - service.yaml
   - python-job.yaml
 
-labels:
-  - pairs:
-      app.kubernetes.io/name: python-job
-      app.kubernetes.io/version: "1.0.0"
+# labels:
+#   - pairs:
+#       app.kubernetes.io/name: python-job
+#       app.kubernetes.io/version: "1.0.0"
