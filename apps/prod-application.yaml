@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: fss-app-prod
-  namespace: prod
+  name: fss-app-production
+  namespace: production
 spec:
   project: default
   source:
     repoURL: 'https://github.com/fabiossena/gitops.git'
     targetRevision: main
-    path: overlays/prod
+    path: overlays/production
   destination:
     server: 'https://kubernetes.default.svc'
     #namespace: fss-app

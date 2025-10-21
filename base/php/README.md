@@ -10,7 +10,7 @@ This base contains:
 Usage (overlay example):
 
 ```yaml
-# overlays/prod/kustomization.yaml
+# overlays/production/kustomization.yaml
 resources:
   - ../../base/php
 
