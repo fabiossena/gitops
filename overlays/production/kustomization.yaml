@@ -6,7 +6,7 @@ resources:
 
 namespace: production
 
-patches:
+patchesStrategicMerge:
   - patch-replicas.yaml
 
 images:

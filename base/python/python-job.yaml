@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: python-job
 spec:
-  schedule: "1 * * * *" # executa todo início de hora
+  schedule: "0/1 * * * *" # executa 
   jobTemplate:
     spec:
       template:
